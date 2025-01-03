@@ -102,6 +102,10 @@ span {
         font-size: 13px;
     }
 
+    .btn-view  abbr i {
+            left: 30%;
+    }
+
     #output {
         max-height: 24vh;
 
