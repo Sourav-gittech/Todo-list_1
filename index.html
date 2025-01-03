@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
+    integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  <title>TODO_LIST</title>
+  <link rel="icon" type="logo" href="./assets/todo_logo.jpg" />
+</head>
+
+<body> 
+  <div class="container" id="todoBody">
+    <!-- add todo  -->
+    <form method="dialog">
+      <div class="mb-3">
+        <label for="todo_title" class="form-label">TODO Title</label><sup id="titleValidation" class="text-danger">*</sup>
+        <input type="text" class="form-control" id="add_todo_title" placeholder="" onkeyup="removeAlert()">
+        <div id="titleAlert" class="form-text text-danger"></div>
+      </div>
+      <div class="form-check mb-2">
+        <input class="form-check-input" type="checkbox" value="" id="descriptionCheck" onchange="showOrHideDescription(this)">
+        <label class="form-label" for="descriptionCheck">Add description</label>
+      </div>
+      <div id="description"></div>
+      <button id="submitBtn" class="btn btn-outline-success mb-3" onclick="addTodo()" type="submit">ADD</button>
+    </form>
+    <!-- show todos  -->
+    <div class="container" id="output"></div>
+  </div>
+
+
+ <!-- todo details modal  -->
+ <div class="modal fade" id="exampleTodoViewModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">TODO Details</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <h5>Title : </h5>
+        <h6><span id="todo_title_view"></span></h6>
+        <h5 id="description_modal">Description : </h5>
+        <h6><span id="todo_description_view"></span></h6>
+      </div>
+      <div class="modal-footer">
+        <h6 class="status" id="todo_status">status</h6>
+        <button type="button" class="btn btn-outline-secondary" onclick="clear_TODO_info()" data-bs-dismiss="modal"><i class="fa-regular fa-eye-slash"></i> Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+ <!-- todo delete modal  -->
+ <div class="modal fade" id="exampleTodoDeleteModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-body">
+        <input type="text" id="delete_todo_id" hidden>
+        <h5>Are you sure to delete ?</h5>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-outline-danger" data-bs-dismiss="modal" onclick="deleteTodo()"><i class="fa-solid fa-trash"></i> Delete</button>
+        <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal"><i class="fa-solid fa-ban"></i> Cancel</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+</body>
+<script src="script.js"></script>
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+  integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js"
+  integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js"
+  integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+</html>
