@@ -28,6 +28,7 @@ A simple and responsive to-do list application built with HTML, CSS, and JavaScr
 
 ```
 todo-list/
+├── assets/           # Images folder
 ├── index.html        # Main HTML file
 ├── styles.css        # CSS for styling the application
 ├── script.js         # JavaScript for interactivity
